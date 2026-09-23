@@ -4,7 +4,7 @@ import { CalendarIcon, Clock, User, ChevronLeft, ChevronRight } from "lucide-rea
 
 const typeColors = {
     BUG: "bg-red-200 text-red-800 dark:bg-red-500 dark:text-red-900",
-    FEATURE: "bg-blue-200 text-blue-800 dark:bg-blue-500 dark:text-blue-900",
+    FEATURE: "bg-slate-200 text-slate-800 dark:bg-slate-500 dark:text-slate-900",
     TASK: "bg-green-200 text-green-800 dark:bg-green-500 dark:text-green-900",
     IMPROVEMENT: "bg-purple-200 text-purple-800 dark:bg-purple-500 dark:text-purple-900",
     OTHER: "bg-amber-200 text-amber-800 dark:bg-amber-500 dark:text-amber-900",
@@ -77,12 +77,12 @@ const ProjectCalendar = ({ tasks }) => {
                                     key={day}
                                     onClick={() => setSelectedDate(day)}
                                     className={`sm:h-14 rounded-md flex flex-col items-center justify-center text-sm
-                                    ${isSelected ? "bg-blue-200 text-blue-900 dark:bg-blue-600 dark:text-white" : "bg-zinc-50 text-zinc-900 dark:bg-zinc-800/40 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700"}
+                                    ${isSelected ? "bg-slate-200 text-slate-900 dark:bg-slate-600 dark:text-white" : "bg-zinc-50 text-zinc-900 dark:bg-zinc-800/40 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700"}
                                     ${hasOverdue ? "border border-red-300 dark:border-red-500" : ""}`}
                                 >
                                     <span>{format(day, "d")}</span>
                                     {dayTasks.length > 0 && (
-                                        <span className="text-[10px] text-blue-700 dark:text-blue-400">{dayTasks.length} tasks</span>
+                                        <span className="text-[10px] text-slate-700 dark:text-slate-400">{dayTasks.length} tasks</span>
                                     )}
                                 </button>
                             );

@@ -33,10 +33,13 @@ const Team = () => {
                         Manage team members and their contributions
                     </p>
                 </div>
-                <button onClick={() => setIsDialogOpen(true)} className="flex items-center px-5 py-2 rounded text-sm bg-gradient-to-br from-blue-500 to-blue-600 hover:opacity-90 text-white transition" >
+                <button onClick={() => setIsDialogOpen(true)} className="flex items-center px-5 py-2 rounded text-sm bg-gradient-to-br from-slate-500 to-slate-600 hover:opacity-90 text-white transition" >
                     <UserPlus className="w-4 h-4 mr-2" /> Invite Member
                 </button>
-                <InviteMemberDialog isDialogOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} />
+                <InviteMemberDialog 
+                isDialogOpen={isDialogOpen} 
+                setIsDialogOpen={setIsDialogOpen} 
+                onInvite = {(newMember) => setUsers((prev) => [...prev, newMember])}/>
             </div>
 
             {/* Stats Cards */}
@@ -48,8 +51,8 @@ const Team = () => {
                             <p className="text-sm text-gray-500 dark:text-zinc-400">Total Members</p>
                             <p className="text-xl font-bold text-gray-900 dark:text-white">{users.length}</p>
                         </div>
-                        <div className="p-3 rounded-xl bg-blue-100 dark:bg-blue-500/10">
-                            <UsersIcon className="size-4 text-blue-500 dark:text-blue-200" />
+                        <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-500/10">
+                            <UsersIcon className="size-4 text-slate-500 dark:text-slate-200" />
                         </div>
                     </div>
                 </div>
@@ -86,7 +89,7 @@ const Team = () => {
             {/* Search */}
             <div className="relative max-w-md">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-zinc-400 size-3" />
-                <input placeholder="Search team members..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-8 w-full text-sm rounded-md border border-gray-300 dark:border-zinc-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-400 py-2 focus:outline-none focus:border-blue-500" />
+                <input placeholder="Search team members..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-8 w-full text-sm rounded-md border border-gray-300 dark:border-zinc-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-400 py-2 focus:outline-none focus:border-slate-500" />
             </div>
 
             {/* Team Members */}
@@ -133,7 +136,7 @@ const Team = () => {
                                         >
                                             <td className="px-6 py-2.5 whitespace-nowrap flex items-center gap-3">
                                                 <img
-                                                    src={user.user.image}
+                                                    src={user.user.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.user.name || user.user.email)}&background=random&color=fff`}
                                                     alt={user.user.name}
                                                     className="size-7 rounded-full bg-gray-200 dark:bg-zinc-800"
                                                 />
@@ -146,12 +149,12 @@ const Team = () => {
                                             </td>
                                             <td className="px-6 py-2.5 whitespace-nowrap">
                                                 <span
-                                                    className={`px-2 py-1 text-xs rounded-md ${user.role === "ADMIN"
+                                                    className={`px-2 py-1 text-xs Sd-md ${user.role === "org:admin"
                                                             ? "bg-purple-100 dark:bg-purple-500/20 text-purple-500 dark:text-purple-400"
                                                             : "bg-gray-200 dark:bg-zinc-700 text-gray-700 dark:text-zinc-300"
                                                         }`}
                                                 >
-                                                    {user.role || "User"}
+                                                    {user.role === "org:admin" ? "ADMIN" : user.role === "org:member" ? "MEMBER" : "USER"}
                                                 </span>
                                             </td>
                                         </tr>
@@ -169,7 +172,7 @@ const Team = () => {
                                 >
                                     <div className="flex items-center gap-3 mb-2">
                                         <img
-                                            src={user.user.image}
+                                            src={user.user.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.user.name || user.user.email)}&background=random&color=fff`}
                                             alt={user.user.name}
                                             className="size-9 rounded-full bg-gray-200 dark:bg-zinc-800"
                                         />

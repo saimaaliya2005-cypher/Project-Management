@@ -89,11 +89,11 @@ export default function ProjectSettings({ project }) {
                     {/* Progress */}
                     <div className="space-y-2">
                         <label className={labelClasses}>Progress: {formData.progress}%</label>
-                        <input type="range" min="0" max="100" step="5" value={formData.progress} onChange={(e) => setFormData({ ...formData, progress: Number(e.target.value) })} className="w-full accent-blue-500 dark:accent-blue-400" />
+                        <input type="range" min="0" max="100" step="5" value={formData.progress} onChange={(e) => setFormData({ ...formData, progress: Number(e.target.value) })} className="w-full accent-slate-500 dark:accent-slate-400" />
                     </div>
 
                     {/* Save Button */}
-                    <button type="submit" disabled={isSubmitting} className="ml-auto flex items-center text-sm justify-center gap-2 bg-gradient-to-br from-blue-500 to-blue-600 text-white px-4 py-2 rounded" >
+                    <button type="submit" disabled={isSubmitting} className="ml-auto flex items-center text-sm justify-center gap-2 bg-gradient-to-br from-slate-500 to-slate-600 text-white px-4 py-2 rounded" >
                         <Save className="size-4" /> {isSubmitting ? "Saving..." : "Save Changes"}
                     </button>
                 </form>

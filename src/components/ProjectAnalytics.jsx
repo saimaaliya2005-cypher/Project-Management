@@ -6,7 +6,7 @@ import { CheckCircle, Clock, AlertTriangle, Users, ArrowRightIcon } from "lucide
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 const PRIORITY_COLORS = {
     LOW: "text-red-600 bg-red-200 dark:text-red-500 dark:bg-red-600",
-    MEDIUM: "text-blue-600 bg-blue-200 dark:text-blue-500 dark:bg-blue-600",
+    MEDIUM: "text-slate-600 bg-slate-200 dark:text-slate-500 dark:bg-slate-600",
     HIGH: "text-emerald-600 bg-emerald-200 dark:text-emerald-500 dark:bg-emerald-600",
 };
 
@@ -63,9 +63,9 @@ const ProjectAnalytics = ({ project, tasks }) => {
         {
             label: "Active Tasks",
             value: stats.inProgress,
-            color: "text-blue-600 dark:text-blue-400",
-            icon: <Clock className="size-5 text-blue-600 dark:text-blue-400" />,
-            bg: "bg-blue-200 dark:bg-blue-500/10",
+            color: "text-slate-600 dark:text-slate-400",
+            icon: <Clock className="size-5 text-slate-600 dark:text-slate-400" />,
+            bg: "bg-slate-200 dark:bg-slate-500/10",
         },
         {
             label: "Overdue Tasks",

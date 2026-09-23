@@ -10,7 +10,7 @@ const ProjectOverview = () => {
         PLANNING: "bg-zinc-200 text-zinc-800 dark:bg-zinc-600 dark:text-zinc-200",
         ACTIVE: "bg-emerald-200 text-emerald-800 dark:bg-emerald-500 dark:text-emerald-900",
         ON_HOLD: "bg-amber-200 text-amber-800 dark:bg-amber-500 dark:text-amber-900",
-        COMPLETED: "bg-blue-200 text-blue-800 dark:bg-blue-500 dark:text-blue-900",
+        COMPLETED: "bg-slate-200 text-slate-800 dark:bg-slate-500 dark:text-slate-900",
         CANCELLED: "bg-red-200 text-red-800 dark:bg-red-500 dark:text-red-900"
     };
 
@@ -44,7 +44,7 @@ const ProjectOverview = () => {
                             <FolderOpen size={32} />
                         </div>
                         <p className="text-zinc-600 dark:text-zinc-400">No projects yet</p>
-                        <button onClick={() => setIsDialogOpen(true)} className="mt-4 px-4 py-2 text-sm bg-gradient-to-br from-blue-500 to-blue-600 text-white dark:text-zinc-200 rounded hover:opacity-90 transition">
+                        <button onClick={() => setIsDialogOpen(true)} className="mt-4 px-4 py-2 text-sm bg-gradient-to-br from-slate-500 to-slate-600 text-white dark:text-zinc-200 rounded hover:opacity-90 transition">
                             Create your First Project
                         </button>
                         <CreateProjectDialog isDialogOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} />
@@ -93,7 +93,7 @@ const ProjectOverview = () => {
                                         <span className="text-zinc-600 dark:text-zinc-400">{project.progress || 0}%</span>
                                     </div>
                                     <div className="w-full bg-zinc-200 dark:bg-zinc-800 rounded h-1.5">
-                                        <div className="h-1.5 bg-blue-500 rounded" style={{ width: `${project.progress || 0}%` }} />
+                                        <div className="h-1.5 bg-slate-500 rounded" style={{ width: `${project.progress || 0}%` }} />
                                     </div>
                                 </div>
                             </Link>

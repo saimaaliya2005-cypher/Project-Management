@@ -38,7 +38,7 @@ export default function TasksSummary() {
             title: "In Progress",
             count: inProgressIssues.length,
             icon: Clock,
-            color: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-400",
+            color: "bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-400",
             items: inProgressIssues.slice(0, 3)
         }
     ];
